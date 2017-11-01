@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-bx-f1k">
-                                <rect key="frame" x="20" y="40" width="335" height="454"/>
+                                <rect key="frame" x="20" y="40" width="335" height="506"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custome Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOU-cf-M4m">
                                         <rect key="frame" x="0.0" y="0.0" width="160.5" height="40"/>
@@ -51,7 +51,7 @@
                                             <action selector="setDefaultBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mUk-wD-4Q3"/>
                                         </connections>
                                     </button>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kSs-ru-8zH">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="kSs-ru-8zH">
                                         <rect key="frame" x="0.0" y="134" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -63,6 +63,14 @@
                                             <outletCollection property="gestureRecognizers" destination="SkK-PH-fzf" appends="YES" id="Ih0-g7-QVs"/>
                                         </connections>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-C9-BjA" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="462" width="96" height="44"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kSs-ru-8zH" firstAttribute="top" secondItem="BdC-ay-UuW" secondAttribute="bottom" constant="8" id="MaT-YY-ift"/>
@@ -96,4 +104,7 @@
             <point key="canvasLocation" x="-84" y="77.811094452773617"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="1080" height="1080"/>
+    </resources>
 </document>
