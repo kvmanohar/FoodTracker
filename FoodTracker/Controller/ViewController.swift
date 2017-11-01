@@ -38,7 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     
     //IB Action for ImageView Gesture Recognizier
-    
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard
         mealNameTxtView.resignFirstResponder()

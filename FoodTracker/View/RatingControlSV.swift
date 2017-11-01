@@ -26,7 +26,11 @@ class RatingControlSV: UIStackView {
     
     // Variables to store the button array and current rating.
     private var ratingButtons = [UIButton]()
-    var rating = 0
+    var rating = 0 {
+        didSet{
+            updateButtonSelectionStatus()
+        }
+    }
     
     //Default initi frame function override
     override init(frame: CGRect) {
@@ -51,10 +55,24 @@ class RatingControlSV: UIStackView {
         }
         ratingButtons.removeAll()              // Clear the Button array
         
+        
+        //Load the button image to cateloge bundle
+        let bundle = Bundle(for: type(of: self))
+        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
+        let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
+        let highlightedStar = UIImage(named: "highlightedStar", in: bundle, compatibleWith: self.traitCollection)
+        
+        
+        
         for _ in 0..<starCount {
             //Create the button
             let button = UIButton()
-            button.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            
+            //Set the button image
+            button.setImage(emptyStar, for: .normal)
+            button.setImage(filledStar, for: .selected)
+            button.setImage(highlightedStar, for: .highlighted)
+            button.setImage(highlightedStar, for: [.selected,.highlighted])
             
             //Add contraints to the button
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -70,10 +88,32 @@ class RatingControlSV: UIStackView {
             //Add new button to rating Button array
             ratingButtons.append(button)
         }
+        updateButtonSelectionStatus()
     }
     
+    
+    
+    //Function similar to IBAction for the button
     @objc func ratingButtonTapped(button: UIButton) {
-        print("Button pressed ")
+     
+        guard let index = ratingButtons.index(of: button) else {
+            fatalError("The Button \(button), is not in the  ratingButton array: \(ratingButtons)")
+        }
+        
+        let selectedRating = index + 1
+        
+        if selectedRating == rating {
+            //if the selected star rating represent the current rating, reset the rating
+            rating = 0
+        }else{
+            rating = selectedRating
+        }
+    }// End of ratingButtonTapped
+    
+    private func updateButtonSelectionStatus(){
+        for (index, button) in ratingButtons.enumerated(){
+            button.isSelected = index < rating
+        }
     }
     
     
