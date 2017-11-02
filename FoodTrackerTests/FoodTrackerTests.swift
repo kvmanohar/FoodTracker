@@ -33,4 +33,17 @@ class FoodTrackerTests: XCTestCase {
         }
     }
     
+    func testMealInitialisationSucceeds() {
+        
+        //Testcase for zero rating
+        let zeroRatingMeal = Meal.init(name:"Zero item", photo: nil, rating: 0)
+        XCTAssertNotNil(zeroRatingMeal)
+        
+        //Highest Positive rating
+        let fiveRatingMeal = Meal.init(name: "Five start", photo: nil, rating: 5)
+        XCTAssertNotNil(fiveRatingMeal)
+        
+    }
+    
+    
 }

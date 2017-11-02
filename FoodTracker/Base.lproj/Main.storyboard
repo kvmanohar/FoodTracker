@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ab5-OX-CyI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,20 +11,21 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
             <string>Avenir-Heavy</string>
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Meal DetailVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MealDetailVC" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-bx-f1k">
-                                <rect key="frame" x="20" y="40" width="335" height="506"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-bx-f1k">
+                                <rect key="frame" x="20" y="40" width="335" height="512"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custome Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOU-cf-M4m">
                                         <rect key="frame" x="0.0" y="0.0" width="160.5" height="40"/>
@@ -63,8 +64,8 @@
                                             <outletCollection property="gestureRecognizers" destination="SkK-PH-fzf" appends="YES" id="Ih0-g7-QVs"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-C9-BjA" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="462" width="252" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-C9-BjA" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="462" width="252" height="50"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                 <integer key="value" value="5"/>
@@ -101,7 +102,85 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-84" y="77.811094452773617"/>
+            <point key="canvasLocation" x="588" y="96"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h1k-LY-08a">
+            <objects>
+                <viewController id="ab5-OX-CyI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q5O-hX-Ltt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3DD-dK-K2U">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="S7b-xk-ljp">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S7b-xk-ljp" id="1v9-1i-lQM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Qp-8d-Nhf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1Qp-8d-Nhf" secondAttribute="height" multiplier="1:1" id="g5n-Iw-1I8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken and Potatos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkI-Ch-CBj">
+                                                    <rect key="frame" x="128" y="8" width="239" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="g60-fH-xOC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9bu-K3-zYS" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="128" y="63" width="225" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="45" id="EXs-e8-af6"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                            <size key="value" width="45" height="45"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1Qp-8d-Nhf" firstAttribute="top" secondItem="1v9-1i-lQM" secondAttribute="top" id="Gy1-Z8-xlw"/>
+                                                <constraint firstAttribute="bottom" secondItem="1Qp-8d-Nhf" secondAttribute="bottom" id="Itr-Bs-wpJ"/>
+                                                <constraint firstItem="1Qp-8d-Nhf" firstAttribute="leading" secondItem="1v9-1i-lQM" secondAttribute="leading" id="Kb4-Cb-Fyd"/>
+                                                <constraint firstItem="dkI-Ch-CBj" firstAttribute="leading" secondItem="1Qp-8d-Nhf" secondAttribute="trailing" constant="8" id="RwR-om-C5K"/>
+                                                <constraint firstItem="9bu-K3-zYS" firstAttribute="top" secondItem="dkI-Ch-CBj" secondAttribute="bottom" constant="20" id="UYj-qu-0RI"/>
+                                                <constraint firstItem="9bu-K3-zYS" firstAttribute="leading" secondItem="1Qp-8d-Nhf" secondAttribute="trailing" constant="8" id="ZtU-pu-09u"/>
+                                                <constraint firstItem="dkI-Ch-CBj" firstAttribute="top" secondItem="1v9-1i-lQM" secondAttribute="top" constant="8" id="vo7-jG-r01"/>
+                                                <constraint firstAttribute="trailing" secondItem="dkI-Ch-CBj" secondAttribute="trailing" constant="8" id="xnm-7h-pOJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3DD-dK-K2U" firstAttribute="bottom" secondItem="T3T-2m-8Uh" secondAttribute="bottom" id="E8h-4U-7O9"/>
+                            <constraint firstItem="3DD-dK-K2U" firstAttribute="top" secondItem="T3T-2m-8Uh" secondAttribute="top" constant="50" id="ZyH-Je-kMw"/>
+                            <constraint firstItem="3DD-dK-K2U" firstAttribute="leading" secondItem="T3T-2m-8Uh" secondAttribute="leading" id="kFl-2W-7jk"/>
+                            <constraint firstItem="3DD-dK-K2U" firstAttribute="trailing" secondItem="T3T-2m-8Uh" secondAttribute="trailing" id="xTT-dy-QXM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T3T-2m-8Uh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1j-zq-5JW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="95.802098950524751"/>
         </scene>
     </scenes>
     <resources>

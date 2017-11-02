@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,
+class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,
  UINavigationControllerDelegate {
 
     @IBOutlet weak var customLbl: UILabel!
