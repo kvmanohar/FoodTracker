@@ -77,14 +77,20 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8he-ah-k7H">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="mOS-yr-C6A" kind="unwind" unwindAction="unwindToMealListWithSender:" id="aoQ-wB-8Bq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mealNameTxtView" destination="Jcg-w5-9sM" id="32f-go-2hd"/>
                         <outlet property="photoImageView" destination="kSs-ru-8zH" id="b9y-DS-5vS"/>
+                        <outlet property="ratingControl" destination="Mpk-C9-BjA" id="9RL-iB-LQ0"/>
+                        <outlet property="saveButton" destination="8he-ah-k7H" id="9dT-tZ-L5n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="mOS-yr-C6A" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="SkK-PH-fzf">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="DRS-Ld-GMg"/>

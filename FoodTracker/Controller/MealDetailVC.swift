@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,
  UINavigationControllerDelegate {
@@ -14,6 +15,12 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
 
     @IBOutlet weak var mealNameTxtView: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControlSV!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    /*This value is either passed by MealTableVC or constructed as part of meal add*/
+    var meal:Meal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +68,24 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    //This method lets you to configure a view controller before it's presented
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling.", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = mealNameTxtView.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        
+        meal = Meal(name: name, photo: photo, rating: rating)
+        
+    }
+    
     
     
 } //End of ViewController Class

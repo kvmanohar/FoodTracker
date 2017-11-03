@@ -19,20 +19,40 @@ class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
 
         // Do any additional setup after loading the view.
     }
-
+    
+    var mealList = MealDataService.instanse.getMeals()
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MealDataService.instanse.getMeals().count
+        return mealList.count
+//        return MealDataService.instanse.getMeals().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableCell") as? MealTableCell {
-            let meal = MealDataService.instanse.getMeals()[indexPath.row]
+            
+            let meal = mealList[indexPath.row]
+//            let meal = MealDataService.instanse.getMeals()[indexPath.row]
             cell.updateMealTableCellView(meal: meal)
             return cell
             
         } else {
             return MealTableCell()
         }
+    }
+    
+    
+    //MARK: Actions
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? MealDetailVC,
+            let meal = sourceViewController.meal {
+            
+            let newIndexPath = IndexPath(row: mealList.count, section: 0)
+            mealList.append(meal)
+            mealTable.insertRows(at: [newIndexPath], with: .automatic)
+            
+        }
+        
     }
     
 
