@@ -11,7 +11,7 @@ import UIKit
 class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,
  UINavigationControllerDelegate {
 
-    @IBOutlet weak var customLbl: UILabel!
+
     @IBOutlet weak var mealNameTxtView: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     
@@ -26,14 +26,6 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
         //Hide the keyboard
         textField.resignFirstResponder()
         return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        customLbl.text = textField.text
-    }
-    
-    @IBAction func setDefaultBtnTapped(_ sender: Any) {
-        mealNameTxtView.text = "Default Text"
     }
     
     

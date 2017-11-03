@@ -26,6 +26,7 @@ class RatingControlSV: UIStackView {
     
     // Variables to store the button array and current rating.
     private var ratingButtons = [UIButton]()
+    
     var rating = 0 {
         didSet{
             updateButtonSelectionStatus()
@@ -50,7 +51,7 @@ class RatingControlSV: UIStackView {
         
         //Remove the exisiting buttons on the stake view if already exists
         for button in ratingButtons{
-            removeArrangedSubview(button)      // Tell the stackview to no longer calcuate the width and height measurements.
+            removeArrangedSubview(button)      // Tell the stackview to no longer calcuate the width and height
             button.removeFromSuperview()       // Now remove the button from the stackView
         }
         ratingButtons.removeAll()              // Clear the Button array
