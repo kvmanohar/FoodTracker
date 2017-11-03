@@ -8,28 +8,32 @@
 
 import UIKit
 
-class MealTableVC: UIViewController {
+class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var mealTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        mealTable.dataSource = self
+        mealTable.delegate = self
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MealDataService.instanse.getMeals().count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableCell") as? MealTableCell {
+            let meal = MealDataService.instanse.getMeals()[indexPath.row]
+            cell.updateMealTableCellView(meal: meal)
+            return cell
+            
+        } else {
+            return MealTableCell()
+        }
     }
-    */
+    
 
 }
