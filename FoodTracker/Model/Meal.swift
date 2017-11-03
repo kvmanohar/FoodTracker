@@ -18,7 +18,7 @@ struct Meal {
     init?(name: String, photo: UIImage?, rating:Int){
         
         // Initialization should fail if there is no name or if the rating is negative.
-        if name.isEmpty || rating < 0 || rating > 6 {
+        if name.isEmpty || rating < 0 || rating > 5 {
             return nil
         }
         self.name = name

@@ -42,8 +42,23 @@ class FoodTrackerTests: XCTestCase {
         //Highest Positive rating
         let fiveRatingMeal = Meal.init(name: "Five start", photo: nil, rating: 5)
         XCTAssertNotNil(fiveRatingMeal)
+
+    }
+ 
+    func testMealInitialisationFail(){
+        
+        //No name passed
+        let noMealName = Meal.init(name: "", photo: nil, rating: 1)
+        XCTAssertNil(noMealName)
+        
+        //Meal with negative rating
+        let negativeMealRating = Meal.init(name: "Negative Meal", photo: nil, rating: -2)
+        XCTAssertNil(negativeMealRating)
+        
+        //Large rating meal
+        let largeRatingMeal = Meal.init(name: "LargeRating", photo: nil, rating: 6)
+        XCTAssertNil(largeRatingMeal)
         
     }
     
-    
-}
+} //End of FoodTrackerTests Class
