@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -50,8 +51,38 @@ class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             let newIndexPath = IndexPath(row: mealList.count, section: 0)
             mealList.append(meal)
             mealTable.insertRows(at: [newIndexPath], with: .automatic)
-            
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier ?? "" {
+            
+        case "AddItemSegue":
+            os_log("Adding new meal item", log:OSLog.default, type: .debug)
+            
+        case "ShowDetailsSegue":
+            
+            guard let mealDetailVC = segue.destination as? MealDetailVC else {
+                fatalError("Unexpected destination \(segue.destination)")
+            }
+            
+            guard let selectedMealCell = sender as? MealTableCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = mealTable.indexPath(for: selectedMealCell) else {
+                fatalError("The selected cell is not been displayed by the table")
+            }
+            
+            let selectedMeal = mealList[indexPath.row]
+            mealDetailVC.meal = selectedMeal
+            
+        default:
+            fatalError("Unexpected Segue Identifier : \(String(describing: segue.identifier))")
+        }
+        
         
     }
     

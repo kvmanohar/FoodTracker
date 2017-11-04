@@ -23,8 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-bx-f1k">
-                                <rect key="frame" x="20" y="84" width="320" height="420"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-bx-f1k">
+                                <rect key="frame" x="20" y="84" width="320" height="426"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jcg-w5-9sM">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -47,8 +47,8 @@
                                             <outletCollection property="gestureRecognizers" destination="SkK-PH-fzf" appends="YES" id="Ih0-g7-QVs"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-C9-BjA" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="376" width="252" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-C9-BjA" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="376" width="252" height="50"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                 <integer key="value" value="5"/>
@@ -138,7 +138,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9bu-K3-zYS" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
+                                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9bu-K3-zYS" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
                                                     <rect key="frame" x="128" y="78" width="150" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="45" id="EXs-e8-af6"/>
@@ -168,6 +168,7 @@
                                             <outlet property="mealImage" destination="1Qp-8d-Nhf" id="rOv-fZ-FRV"/>
                                             <outlet property="mealLabel" destination="dkI-Ch-CBj" id="wAs-Xb-ygI"/>
                                             <outlet property="mealRating" destination="9bu-K3-zYS" id="N6f-5A-jgK"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetailsSegue" id="VgN-rP-vG9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -236,10 +237,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IkS-nt-OUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003.2" y="95.352323838080963"/>
+            <point key="canvasLocation" x="1042" y="493"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="1080" height="1080"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VgN-rP-vG9"/>
+    </inferredMetricsTieBreakers>
 </document>

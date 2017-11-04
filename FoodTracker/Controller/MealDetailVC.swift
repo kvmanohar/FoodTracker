@@ -26,6 +26,15 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         mealNameTxtView.delegate = self
+        
+        //Set up view if editing the existing view
+        if meal != nil {
+            navigationItem.title = meal!.name
+            mealNameTxtView.text = meal!.name
+            photoImageView.image = meal!.photo
+            ratingControl.rating = meal!.rating
+        }
+        
         updateSaveButtonState()
         
     }
@@ -98,13 +107,11 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
             os_log("The save button was not pressed, cancelling.", log: OSLog.default, type: .debug)
             return
         }
-        
         let name = mealNameTxtView.text ?? ""
         let photo = photoImageView.image
         let rating = ratingControl.rating
         
         meal = Meal(name: name, photo: photo, rating: rating)
-        
     }
     
     
