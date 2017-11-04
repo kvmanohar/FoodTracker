@@ -48,9 +48,18 @@ class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         if let sourceViewController = sender.source as? MealDetailVC,
             let meal = sourceViewController.meal {
             
-            let newIndexPath = IndexPath(row: mealList.count, section: 0)
-            mealList.append(meal)
-            mealTable.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = mealTable.indexPathForSelectedRow {
+                
+                //Update existing row
+                mealList[selectedIndexPath.row] = meal
+                mealTable.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            else{
+                // Add new meal
+                let newIndexPath = IndexPath(row: mealList.count, section: 0)
+                mealList.append(meal)
+                mealTable.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     

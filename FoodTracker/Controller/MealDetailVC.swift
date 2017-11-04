@@ -34,13 +34,12 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
             photoImageView.image = meal!.photo
             ratingControl.rating = meal!.rating
         }
-        
         updateSaveButtonState()
         
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        saveButton.isEnabled = false
+        updateSaveButtonState()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
