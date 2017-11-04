@@ -26,13 +26,29 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         mealNameTxtView.delegate = self
+        updateSaveButtonState()
         
     }
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        saveButton.isEnabled = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Hide the keyboard
         textField.resignFirstResponder()
         return true
+    }
+    
+    private func updateSaveButtonState(){
+        //Disable the save button if the text field is empty
+        let text = mealNameTxtView.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
     }
     
     
@@ -66,6 +82,11 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     

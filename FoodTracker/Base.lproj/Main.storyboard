@@ -74,6 +74,9 @@
                     <navigationItem key="navigationItem" title="New Meal" id="qWv-oS-ZWD">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e0D-Sd-m5K">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="BYZ-38-t0r" id="kvY-7s-aCn"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8he-ah-k7H">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
