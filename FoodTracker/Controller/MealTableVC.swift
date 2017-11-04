@@ -26,6 +26,7 @@ class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
     }
     
+    //MARK: Table view delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mealList.count
     }
@@ -39,6 +40,18 @@ class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             
         } else {
             return MealTableCell()
+        }
+    }
+    
+    //MARK: Delegates for table Edits (Delete)
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            mealList.remove(at: indexPath.row)
+            mealTable.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -63,6 +76,7 @@ class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         }
     }
     
+    //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
