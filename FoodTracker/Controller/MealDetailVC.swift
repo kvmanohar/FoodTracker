@@ -95,7 +95,20 @@ class MealDetailVC: UIViewController, UITextFieldDelegate, UIImagePickerControll
     
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentationInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentationInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealTableVC is not inside the navigation controller.")
+        }
+        
     }
     
     //This method lets you to configure a view controller before it's presented
