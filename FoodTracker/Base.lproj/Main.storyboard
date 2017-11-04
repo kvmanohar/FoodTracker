@@ -23,8 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-bx-f1k">
-                                <rect key="frame" x="20" y="84" width="320" height="426"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-bx-f1k">
+                                <rect key="frame" x="20" y="84" width="320" height="420"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jcg-w5-9sM">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -47,8 +47,8 @@
                                             <outletCollection property="gestureRecognizers" destination="SkK-PH-fzf" appends="YES" id="Ih0-g7-QVs"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-C9-BjA" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="376" width="252" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-C9-BjA" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="376" width="252" height="44"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starCount">
                                                 <integer key="value" value="5"/>
@@ -138,7 +138,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9bu-K3-zYS" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
+                                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9bu-K3-zYS" customClass="RatingControlSV" customModule="FoodTracker" customModuleProvider="target">
                                                     <rect key="frame" x="128" y="78" width="150" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="45" id="EXs-e8-af6"/>
@@ -207,6 +207,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="blackTranslucent" id="Orh-HR-HTw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

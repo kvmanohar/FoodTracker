@@ -13,27 +13,27 @@ class MealTableVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
 
     @IBOutlet weak var mealTable: UITableView!
     
+    var mealList = [Meal]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        mealList = MealDataService.instanse.getMeals()
         mealTable.dataSource = self
         mealTable.delegate = self
-
-        // Do any additional setup after loading the view.
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+        
     }
-    
-    var mealList = MealDataService.instanse.getMeals()
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mealList.count
-//        return MealDataService.instanse.getMeals().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableCell") as? MealTableCell {
             
             let meal = mealList[indexPath.row]
-//            let meal = MealDataService.instanse.getMeals()[indexPath.row]
             cell.updateMealTableCellView(meal: meal)
             return cell
             
